@@ -1,7 +1,7 @@
 <!--
  * @Date: 2021-05-03 14:03:05
  * @LastEditors: zhangbaoyan
- * @LastEditTime: 2021-05-06 14:30:10
+ * @LastEditTime: 2021-05-06 14:47:33
  * @FilePath: /h5work/my-app/src/App.vue
 -->
 <template>
@@ -157,10 +157,9 @@ th, td { /* table elements 表格元素 */
     & > .imgBox {
       display: flex;
       justify-content: space-between;
-      width: 1148px;
-      height: 488px;
+      width: 986px;
+      height: 485px;
       border-radius: 27px;
-      // 
       background-size: cover;
       padding: 0 100px 0 60px;
       & > .left {
@@ -168,15 +167,16 @@ th, td { /* table elements 表格元素 */
         // display: flex;
         // flex-direction: column;
         & > .title {
+          display: inline-block;
           width: auto;
           height: 50px;
+          line-height: 50px;
           border-radius: 10px;
           background-color: rgb(255, 255, 255);
-          padding: 6px 20px;
+          padding: 0 20px;
           font-size: 22px;
           font-family: "SourceHanSansCN";
           color: rgb(157, 167, 178);
-          line-height: 50px;
         }
         & > .subTitle {
           font-size: 60px;
