@@ -1,0 +1,17 @@
+[
+    {
+        "id": "bg_0",
+        "name": "施工背景",
+        "imageUrl": "./assets/img/shigongbg.png"
+    },
+    {
+        "id": "bg_1",
+        "name": "材料背景",
+        "imageUrl": "./assets/img/cailiaobg.png"
+    },
+    {
+        "id": "bg_2",
+        "name": "设计师背景",
+        "imageUrl": "./assets/img/IPBG.png"
+    }
+]
