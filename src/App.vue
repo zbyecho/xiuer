@@ -1,13 +1,8 @@
 <!--
  * @Date: 2021-05-03 14:03:05
  * @LastEditors: zhangbaoyan
-<<<<<<< HEAD
- * @LastEditTime: 2021-05-06 14:47:33
- * @FilePath: /h5work/my-app/src/App.vue
-=======
- * @LastEditTime: 2021-05-06 16:27:32
- * @FilePath: /my-app/src/App.vue
->>>>>>> 🤔
+ * @LastEditTime: 2021-05-07 10:40:21
+ * @FilePath: /xiuer/src/App.vue
 -->
 <template>
   <div id="app">
@@ -179,19 +174,12 @@ th, td { /* table elements 表格元素 */
           border-radius: 10px;
           background-color: rgb(255, 255, 255);
           padding: 0 20px;
-<<<<<<< HEAD
-          font-size: 22px;
-=======
           font-size: 32px;
->>>>>>> 🤔
           font-family: "SourceHanSansCN";
           color: rgb(157, 167, 178);
         }
         & > .subTitle {
-<<<<<<< HEAD
-=======
           font-family: "SourceHanSansCN";
->>>>>>> 🤔
           font-size: 60px;
           color: rgb(255, 255, 255);
           margin-bottom: 40px;
@@ -207,11 +195,7 @@ th, td { /* table elements 表格元素 */
             margin: 0 10px;
           }
           & > .tag {
-<<<<<<< HEAD
-            font-size: 37px;
-=======
             font-size: 36px;
->>>>>>> 🤔
             font-family: "SourceHanSansCN";
             color: rgba(253, 253, 253, 0.6);
           }
