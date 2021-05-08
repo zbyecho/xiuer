@@ -2,7 +2,7 @@
 ###
  # @Date: 2021-05-07 10:41:15
  # @LastEditors: zhangbaoyan
- # @LastEditTime: 2021-05-08 13:13:49
+ # @LastEditTime: 2021-05-08 13:33:11
  # @FilePath: /xiuer/deploy.sh
 ### 
 # 当发生错误时中止脚本
@@ -25,6 +25,6 @@ echo 'https://zbyecho.github.io/xiuer/'
 # git push -f git@github.com:<USERNAME>/<USERNAME>.github.io.git master
 
 # 部署到 https://<USERNAME>.github.io/<REPO>
-git push -f https://zbyecho.github.io/xiuer/ master:gh-pages
+git push
 
 cd -
