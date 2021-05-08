@@ -1,7 +1,7 @@
 <!--
  * @Date: 2021-05-03 14:03:05
  * @LastEditors: zhangbaoyan
- * @LastEditTime: 2021-05-07 10:40:21
+ * @LastEditTime: 2021-05-08 09:13:08
  * @FilePath: /xiuer/src/App.vue
 -->
 <template>
@@ -158,12 +158,12 @@ th, td { /* table elements 表格元素 */
       display: flex;
       justify-content: space-between;
       width: 986px;
-      height: 485px;
+      min-height: 485px;
       border-radius: 27px;
       background-size: cover;
-      padding: 0 100px 0 60px;
+      padding: 0 100px 0 88px;
       & > .left {
-        padding-top: 189px;
+        padding-top: 185px;
         // display: flex;
         // flex-direction: column;
         & > .title {
@@ -182,12 +182,13 @@ th, td { /* table elements 表格元素 */
           font-family: "SourceHanSansCN";
           font-size: 60px;
           color: rgb(255, 255, 255);
-          margin-bottom: 40px;
-          margin-top:10px;
+          margin-bottom: 58px;
+          margin-top: 23px;
         }
         & > .bxot {
           display: flex;
           align-items: center;
+          padding-bottom: 52px;
           & > .xian {
             width: 5px;
             height: 34px;
