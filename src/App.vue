@@ -1,130 +1,145 @@
 <!--
  * @Date: 2021-05-03 14:03:05
  * @LastEditors: zhangbaoyan
- * @LastEditTime: 2021-05-08 09:13:08
+ * @LastEditTime: 2021-05-08 13:57:26
  * @FilePath: /xiuer/src/App.vue
 -->
 <template>
   <div id="app">
-      <div class="box"  >
-        <div class="content left">
-          <el-card class="box-card">
-            <el-form :inline="true" :model="params" class="demo-form-inline">
-                <el-form-item label="背景">
-                  <el-select v-model="params.bg" placeholder="选择背景">
-                    <el-option 
-                      v-for="(item, index) in selectParams.bg" 
-                      :key="index"
-                      :label="item.name" 
-                      :value="item.id">
-                    </el-option>
-                  </el-select>
-                </el-form-item>
-                <el-form-item label="标题">
-                  <el-input v-model="params.title" clearable placeholder="标题"></el-input>
-                </el-form-item>
-                <el-form-item label="大标题">
-                  <el-input v-model="params.subTitle" clearable placeholder="大标题"></el-input>
-                </el-form-item>
-                <el-form-item label="人员">
-                  <el-select v-model="params.region" @change="changeUser" @clear="clearUser" clearable  filterable placeholder="选择人员">
-                    <el-option 
-                      v-for="(item, index) in selectParams.user" 
-                      :key="index"
-                      :label="item.userName" 
-                      :value="item.id">
-                    </el-option>
-                  </el-select>
-                </el-form-item>
-                <el-form-item>
-                  <el-button type="primary" @click="saveImg">保存</el-button>
-                </el-form-item>
-              </el-form>
-          </el-card>
-        </div>
-        <div class="content right">
-          <div class="imgBox" :class="[params.bg]" id="capture"  >
-            <div class="left">
-                <span class="title">{{params.title}}</span>
-                <div class="subTitle">{{params.subTitle}}</div>
-                <div class="bxot">
-                  <div class="tag">{{params.tag}}</div>
-                  <div class="xian"></div>
-                  <div class="tag">{{params.userName}}</div>
-                </div>
+    <div class="box">
+      <div class="content left">
+        <el-card class="box-card">
+          <el-form :inline="true" :model="params" class="demo-form-inline">
+            <el-form-item label="背景">
+              <el-select v-model="params.bg" placeholder="选择背景">
+                <el-option
+                  v-for="(item, index) in selectParams.bg"
+                  :key="index"
+                  :label="item.name"
+                  :value="item.id"
+                >
+                </el-option>
+              </el-select>
+            </el-form-item>
+            <el-form-item label="标题">
+              <el-input
+                v-model="params.title"
+                clearable
+                placeholder="标题"
+              ></el-input>
+            </el-form-item>
+            <el-form-item label="大标题">
+              <el-input
+                v-model="params.subTitle"
+                clearable
+                placeholder="大标题"
+              ></el-input>
+            </el-form-item>
+            <el-form-item label="人员">
+              <el-select
+                v-model="params.region"
+                @change="changeUser"
+                @clear="clearUser"
+                clearable
+                filterable
+                placeholder="选择人员"
+              >
+                <el-option
+                  v-for="(item, index) in selectParams.user"
+                  :key="index"
+                  :label="item.userName"
+                  :value="item.id"
+                >
+                </el-option>
+              </el-select>
+            </el-form-item>
+            <el-form-item>
+              <el-button type="primary" @click="saveImg">保存</el-button>
+            </el-form-item>
+          </el-form>
+        </el-card>
+      </div>
+      <div class="content right">
+        <div class="imgBox" :class="[params.bg]" id="capture">
+          <div class="left">
+            <span class="title">{{ params.title }}</span>
+            <div class="subTitle">{{ params.subTitle }}</div>
+            <div class="bxot">
+              <div class="tag">{{ params.tag }}</div>
+              <div class="xian"></div>
+              <div class="tag">{{ params.userName }}</div>
             </div>
-            <div class="right">
-                <img :src="params.bgUrl" alt="">
-            </div>
+          </div>
+          <div class="right">
+            <img :src="params.bgUrl" alt="" />
           </div>
         </div>
       </div>
-     
-     
+    </div>
   </div>
 </template>
 
 <script>
-import HelloWorld from './components/HelloWorld.vue'
-import html2canvas from 'html2canvas';
-import bg from './dataBase/bg.json'
-import user from './dataBase/user.json'
+import HelloWorld from "./components/HelloWorld.vue";
+import html2canvas from "html2canvas";
+import bg from "./dataBase/bg.json";
+import user from "./dataBase/user.json";
 export default {
-  name: 'App',
+  name: "App",
   components: {
-    HelloWorld
+    HelloWorld,
   },
   data() {
     return {
       params: {
-        bg: 'bg_0',
-        bgUrl: '',
-        title: '标题',
-        subTitle: '大标题',
+        bg: "bg_0",
+        bgUrl: "",
+        title: "标题",
+        subTitle: "大标题",
         tag: "标签",
-        userName: "名字"
+        userName: "名字",
       },
       selectParams: {
         bg: [],
-        user: []
-      }
-    }
+        user: [],
+      },
+    };
   },
   methods: {
     getJson() {
       console.log(bg);
       console.log(user);
-      this.selectParams.bg = bg
-      this.selectParams.user = user
+      this.selectParams.bg = bg;
+      this.selectParams.user = user;
     },
-    
+
     changeUser(item) {
-      this.params.bgUrl = require(`${this.selectParams.user[item].imageUrl}`)
-      this.params.tag = this.selectParams.user[item].tag
-      this.params.userName = this.selectParams.user[item].userName
+      this.params.bgUrl = require(`${this.selectParams.user[item].imageUrl}`);
+      this.params.tag = this.selectParams.user[item].tag;
+      this.params.userName = this.selectParams.user[item].userName;
     },
     clearUser() {
-      this.params.bgUrl = ''
-      this.params.tag = ''
-      this.params.userName = ''
+      this.params.bgUrl = "";
+      this.params.tag = "";
+      this.params.userName = "";
     },
     saveImg() {
-      html2canvas(document.querySelector("#capture")).then(canvas => {
-          // document.body.appendChild(canvas)
-          var imgUri = canvas.toDataURL("image/png");
-          console.log(imgUri);
-          let A = document.createElement('a')
-          A.href = imgUri
-          A.download= `${this.params.userName}.png`
-          A.click()
-          A.remove(A)
+      html2canvas(document.querySelector("#capture")).then((canvas) => {
+        // document.body.appendChild(canvas)
+        var imgUri = canvas.toDataURL("image/png");
+        console.log(imgUri);
+        let A = document.createElement("a");
+        A.href = imgUri;
+        A.download = `${this.params.userName}.png`;
+        A.click();
+        A.remove(A);
       });
-    }
+    },
   },
-  mounted () {
+  mounted() {
     this.getJson();
   },
-}
+};
 </script>
 
 <style lang="less" >
@@ -133,9 +148,10 @@ body, h1, h2, h3, h4, h5, h6, hr, p, blockquote, /* structural elements 结构�
 dl, dt, dd, ul, ol, li, /* list elements 列表元素 */
 pre, /* text formatting elements 文本格式元素 */
 fieldset, lengend, button, input, textarea, /* form elements 表单元素 */
-th, td { /* table elements 表格元素 */
-    margin: 0;
-    padding: 0;
+th, td {
+  /* table elements 表格元素 */
+  margin: 0;
+  padding: 0;
 }
 .box {
   display: flex;
@@ -190,9 +206,10 @@ th, td { /* table elements 表格元素 */
           align-items: center;
           padding-bottom: 52px;
           & > .xian {
-            width: 5px;
+            width: 4px;
             height: 34px;
-            border-left:1px solid rgba(253, 253, 253, 0.6);
+            background-color: rgba(253, 253, 253, 0.6);
+            // border-left: 1px solid rgba(253, 253, 253, 0.6);
             margin: 0 10px;
           }
           & > .tag {
@@ -201,8 +218,6 @@ th, td { /* table elements 表格元素 */
             color: rgba(253, 253, 253, 0.6);
           }
         }
-        
-        
       }
       & > .right {
         height: 100%;
@@ -216,7 +231,7 @@ th, td { /* table elements 表格元素 */
         }
       }
     }
-  } 
+  }
 }
 .bg_0 {
   background-image: url(./assets/img/shigongbg.png);
@@ -227,6 +242,4 @@ th, td { /* table elements 表格元素 */
 .bg_2 {
   background-image: url(./assets/img/IPBG.png);
 }
-
-
 </style>
