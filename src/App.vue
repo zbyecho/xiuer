@@ -1,7 +1,7 @@
 <!--
  * @Date: 2021-05-03 14:03:05
  * @LastEditors: zhangbaoyan
- * @LastEditTime: 2021-05-17 15:29:41
+ * @LastEditTime: 2021-05-17 15:41:06
  * @FilePath: /xiuer/src/App.vue
 -->
 <template>
@@ -197,11 +197,11 @@ th, td {
           padding: 0 20px;
           padding-bottom: 10px;
           font-size: 32px;
-          font-family: "SourceHanSansCN";
+          font-family: "Source Han Sans CN";
           color: rgb(157, 167, 178);
         }
         & > .subTitle {
-          font-family: "SourceHanSansCN";
+          font-family: "Source Han Sans CN";
           font-size: 60px;
           color: rgb(255, 255, 255);
           margin-bottom: 58px;
@@ -227,7 +227,7 @@ th, td {
 
           & > .tag {
             font-size: 36px;
-            font-family: "SourceHanSansCN";
+            font-family: "Source Han Sans CN";
             color: rgba(253, 253, 253, 0.6);
           }
         }
