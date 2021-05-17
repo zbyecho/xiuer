@@ -1,7 +1,7 @@
 <!--
  * @Date: 2021-05-03 14:03:05
  * @LastEditors: zhangbaoyan
- * @LastEditTime: 2021-05-08 13:57:26
+ * @LastEditTime: 2021-05-17 15:29:41
  * @FilePath: /xiuer/src/App.vue
 -->
 <template>
@@ -62,11 +62,14 @@
       <div class="content right">
         <div class="imgBox" :class="[params.bg]" id="capture">
           <div class="left">
-            <span class="title">{{ params.title }}</span>
+            <div class="title">{{ params.title }}</div>
             <div class="subTitle">{{ params.subTitle }}</div>
             <div class="bxot">
               <div class="tag">{{ params.tag }}</div>
-              <div class="xian"></div>
+              <div class="xianBox">
+                <div style="width: 4px; height: 8px"></div>
+                <div class="xian"></div>
+              </div>
               <div class="tag">{{ params.userName }}</div>
             </div>
           </div>
@@ -124,7 +127,9 @@ export default {
       this.params.userName = "";
     },
     saveImg() {
-      html2canvas(document.querySelector("#capture")).then((canvas) => {
+      html2canvas(document.querySelector("#capture"), {
+        letterRendering: true,
+      }).then((canvas) => {
         // document.body.appendChild(canvas)
         var imgUri = canvas.toDataURL("image/png");
         console.log(imgUri);
@@ -183,13 +188,14 @@ th, td {
         // display: flex;
         // flex-direction: column;
         & > .title {
-          display: inline-block;
+          display: inline-flex;
           width: auto;
           height: 50px;
-          line-height: 50px;
+          // line-height: 50px;
           border-radius: 10px;
           background-color: rgb(255, 255, 255);
           padding: 0 20px;
+          padding-bottom: 10px;
           font-size: 32px;
           font-family: "SourceHanSansCN";
           color: rgb(157, 167, 178);
@@ -202,16 +208,23 @@ th, td {
           margin-top: 23px;
         }
         & > .bxot {
-          display: flex;
-          align-items: center;
-          padding-bottom: 52px;
-          & > .xian {
-            width: 4px;
-            height: 34px;
-            background-color: rgba(253, 253, 253, 0.6);
-            // border-left: 1px solid rgba(253, 253, 253, 0.6);
-            margin: 0 10px;
+          & > div {
+            float: left;
           }
+          // display: flex;
+          // align-items: center;
+          padding-bottom: 52px;
+          & > .xianBox {
+            padding: 0px 10px;
+            padding-top: 8px;
+            // padding: 8px 10px 0 10px;
+            & > .xian {
+              width: 4px;
+              height: 34px;
+              background-color: rgba(253, 253, 253, 0.6);
+            }
+          }
+
           & > .tag {
             font-size: 36px;
             font-family: "SourceHanSansCN";
